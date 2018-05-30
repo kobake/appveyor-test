@@ -24,7 +24,7 @@ build_script:
     echo appveyor_yml
 
 artifacts:
-- path: sakura\Debug_Unicode\sakura.exe
-- path: sakura\Debug_Unicode\sakura.pdb
-- path: sakura\Release_Unicode\sakura.exe
-- path: sakura\Release_Unicode\sakura.pdb
+- path: sakura\Debug_Unicode\appveyor-test.exe
+- path: sakura\Debug_Unicode\appveyor-test.pdb
+- path: sakura\Release_Unicode\appveyor-test.exe
+- path: sakura\Release_Unicode\appveyor-test.pdb
