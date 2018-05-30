@@ -15,8 +15,8 @@ build_script:
     set MSBUILD_EXE="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
 
 
-    echo %MSBUILD_EXE% %SLN_FILE% /p:Platform=x86 /p:Configuration=Debug_Unicode      /t:"Clean","Rebuild"  %EXTRA_CMD%
-         %MSBUILD_EXE% %SLN_FILE% /p:Platform=x86 /p:Configuration=Debug_Unicode      /t:"Clean","Rebuild"  %EXTRA_CMD%
+#    echo %MSBUILD_EXE% %SLN_FILE% /p:Platform=x86 /p:Configuration=Debug_Unicode      /t:"Clean","Rebuild"  %EXTRA_CMD%
+#         %MSBUILD_EXE% %SLN_FILE% /p:Platform=x86 /p:Configuration=Debug_Unicode      /t:"Clean","Rebuild"  %EXTRA_CMD%
 
     echo %MSBUILD_EXE% %SLN_FILE% /p:Platform=x86 /p:Configuration=Release_Unicode    /t:"Clean","Rebuild"  %EXTRA_CMD%
          %MSBUILD_EXE% %SLN_FILE% /p:Platform=x86 /p:Configuration=Release_Unicode    /t:"Clean","Rebuild"  %EXTRA_CMD%
@@ -24,7 +24,7 @@ build_script:
     echo appveyor_yml
 
 artifacts:
-- path: sakura\Debug_Unicode\appveyor-test.exe
-- path: sakura\Debug_Unicode\appveyor-test.pdb
+# - path: sakura\Debug_Unicode\appveyor-test.exe
+# - path: sakura\Debug_Unicode\appveyor-test.pdb
 - path: sakura\Release_Unicode\appveyor-test.exe
 - path: sakura\Release_Unicode\appveyor-test.pdb
