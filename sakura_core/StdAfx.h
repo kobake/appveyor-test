@@ -40,19 +40,11 @@
 #undef MINGW_HAS_SECURE_API
 #endif  // MINGW_HAS_SECURE_API
 #endif  // __MINGW32__
-//グローバル
-#include "_main/global.h"
-
-//ビルドオプション的なヘッダ
-#include "config/build_config.h"
-#include "config/maxdata.h"
-
-//定数(プリコンパイル日付に依存)
-#include "config/system_constants.h"	//システム定数
-#include "config/app_constants.h"		//アプリケーション定数
 
 //高頻度API等
 // #include <CommDlg.h> // WIN32_LEAN_AND_MEANでは必要。OpenFileDialg系
+
+#include <windows.h>
 #include <CommCtrl.h> // コモンコントロール
 #include <stdlib.h>  // _MAX_PATH
 #include <wchar.h>
@@ -78,34 +70,6 @@
 #define BUILD_OPT_NEW_HEADERS
 #endif
 
-//デバッグ
-#include "debug/Debug1.h"
-#include "debug/Debug2.h"
-#include "debug/Debug3.h"
-
-//シンプルでよく使うもの
-#include "basis/primitive.h"
-#include "util/std_macro.h"
-
-//MFC互換
-#include "basis/CMyString.h"
-#include "basis/CMyRect.h"
-#include "basis/CMyPoint.h"
-#include "basis/CMySize.h"
-
-//サクラエディタ固有型
-#include "basis/SakuraBasis.h"
-
-//よく使うヘッダ
-#include "mem/CNativeW.h"
-#include "mem/CNativeA.h"
-#include "mem/CNativeT.h"
-
-#include "util/string_ex.h"
-#include "util/MessageBoxF.h"
-#include "CSelectLang.h"
-#include "String_define.h"
-
 //その他
 #define malloc_char (char*)malloc
 #define GlobalLockChar  (char*)::GlobalLock
@@ -113,23 +77,10 @@
 #define GlobalLockWChar (wchar_t*)::GlobalLock
 #define GlobalLockBYTE  (BYTE*)::GlobalLock
 
-//APIラップ
-#include "apiwrap/StdControl.h"
-#include "apiwrap/CommonControl.h"
-#include "apiwrap/StdApi.h"
-
-//TCHARユーティリティ
-#include "util/tchar_convert.h"
-#include "charset/charcode.h"
-#include "charset/codechecker.h"
 
 // 2010.04.19 Moca includeの大規模整理
 #ifndef SAKURA_PCH_MODE_MIN
 #define SAKURA_PCH_MODE_DLLSHARE 1
-#endif
-
-#if defined(SAKURA_PCH_MODE_MAX) || defined(SAKURA_PCH_MODE_DLLSHARE)
-#include "env/DLLSHAREDATA.h"
 #endif
 
 #ifdef SAKURA_PCH_MODE_MAX
